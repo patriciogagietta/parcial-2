@@ -400,7 +400,35 @@ class Grafo():
 
         return paises_natural, paises_aarquitectonico
 
+    def personajes_comparten_episodios(self):
+        aux = self.__inicio
 
+        while (aux is not None):
+            adya = aux.adyacentes.get_inicio()
+
+            while (adya is not None):
+                if (adya.peso > 2):
+                    print(f'{aux.info.title()} comparte {adya.peso} episodios con {adya.info.title()}')
+                adya = adya.sig
+            aux = aux.sig
+
+    def compartio_cantidad_max(self):
+        aux = self.__inicio
+        max = aux.adyacentes.get_inicio().peso
+
+        while (aux is not None):
+            adya = aux.adyacentes.get_inicio()
+
+            while (adya is not None):
+                if (adya.peso > max):
+                    name_max = adya.info
+                    max = adya.peso
+                adya = adya.sig
+            aux = aux.sig
+        print(f'{name_max.title()} fue el que mas episodios compartio con un total de {max}')
+
+
+    
 
 
 

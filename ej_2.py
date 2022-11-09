@@ -30,48 +30,44 @@ g.insertar_vertice('bb 8')
 
 g.insertar_arista('luke skywalker', 'darth vader', 3)
 g.insertar_arista('luke skywalker', 'boba fett', 5)
-g.insertar_arista('luke skywalker', 'c 3po', 1)
-g.insertar_arista('rey', 'luke skywalker', 6)
+g.insertar_arista('luke skywalker', 'c 3po', 13)
+g.insertar_arista('rey', 'luke skywalker', 12)
 g.insertar_arista('chewbacca', 'han solo', 7)
 g.insertar_arista('han solo', 'r2 d2', 4)
 g.insertar_arista('obi wan kenobi', 'kylo ren', 5)
 g.insertar_arista('obi wan kenobi', 'r2 d2', 8)
-g.insertar_arista('obi wan kenobi', 'bb 8', 7)
+g.insertar_arista('obi wan kenobi', 'bb 8', 7)  #-------------------------primer get_inicio()
 g.insertar_arista('bb 8', 'luke skywalker', 1)
 g.insertar_arista('bb 8', 'leia', 2)
 g.insertar_arista('kylo ren', 'yoda', 3)
 g.insertar_arista('rey', 'chewbacca', 4)
 g.insertar_arista('chewbacca', 'leia', 5)
-g.insertar_arista('chewbacca', 'bb 8', 10)
-g.insertar_arista('darth vader', 'chewbacca', 1)
+g.insertar_arista('chewbacca', 'bb 8', 2)
+g.insertar_arista('darth vader', 'chewbacca', 11)
 g.insertar_arista('darth vader', 'r2 d2', 1)
-g.insertar_arista('darth vader', 'han solo', 6)
-g.insertar_arista('han solo', 'rey', 2)
+g.insertar_arista('darth vader', 'han solo', 10)
+g.insertar_arista('han solo', 'rey', 5)
 g.insertar_arista('han solo', 'c 3po', 1)
 
 # B
 arbol_min = g.kruskal()
 
-arbol_min = arbol_min[0].split('-')
-peso_total = 0
+if ('yoda' in arbol_min[0] or 'princesa leia' in arbol_min[0] or 'c 3po' in arbol_min[0]):
+    arbol_min = arbol_min[0].split('-')
 
-print('arbol de expansion minima:')
-for nodo in arbol_min:
-    nodo = nodo.split(';')
-    peso_total += int(nodo[2])
-    print(f'{nodo[0]} - {nodo[1]} - {nodo[2]}')
+    print('arbol de expansion minima:')
+    for nodo in arbol_min:
+        nodo = nodo.split(';')
+        print(f'{nodo[0]} - {nodo[1]} - {nodo[2]}')
+    print()
+
+# C
+g.personajes_comparten_episodios()
 print()
-
-print('cantidad de episodios: ', peso_total)
-print()
-
-# c. 
-
-
 
 # E 
-
-
+g.compartio_cantidad_max()
+print()
 
 
 
